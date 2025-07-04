@@ -25,25 +25,70 @@ const Checkout = () => {
       alert("Your cart is empty!");
       return;
     }
-    // Normally you would process payment here
     navigate('/confirmation');
   };
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '600px', margin: 'auto' }}>
+    <div className="checkout-container">
       <h2>Checkout</h2>
-      <form onSubmit={handleSubmit}>
-        <h4>Customer Info</h4>
-        <input type="text" name="name" placeholder="Full Name" required value={form.name} onChange={handleChange} /><br />
-        <input type="email" name="email" placeholder="Email" required value={form.email} onChange={handleChange} /><br />
-        <input type="text" name="address" placeholder="Shipping Address" required value={form.address} onChange={handleChange} /><br />
+      <form className="checkout-form" onSubmit={handleSubmit}>
+        <div className="checkout-section-title">Customer Info</div>
+        <div className="checkout-row">
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            required
+            value={form.name}
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            value={form.email}
+            onChange={handleChange}
+          />
+        </div>
+        <input
+          type="text"
+          name="address"
+          placeholder="Shipping Address"
+          required
+          value={form.address}
+          onChange={handleChange}
+        />
 
-        <h4>Payment Info</h4>
-        <input type="text" name="cardNumber" placeholder="Card Number" required value={form.cardNumber} onChange={handleChange} /><br />
-        <input type="text" name="expiry" placeholder="MM/YY" required value={form.expiry} onChange={handleChange} /><br />
-        <input type="text" name="cvv" placeholder="CVV" required value={form.cvv} onChange={handleChange} /><br />
+        <div className="checkout-section-title">Payment Info</div>
+        <input
+          type="text"
+          name="cardNumber"
+          placeholder="Card Number"
+          required
+          value={form.cardNumber}
+          onChange={handleChange}
+        />
+        <div className="checkout-row">
+          <input
+            type="text"
+            name="expiry"
+            placeholder="MM/YY"
+            required
+            value={form.expiry}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="cvv"
+            placeholder="CVV"
+            required
+            value={form.cvv}
+            onChange={handleChange}
+          />
+        </div>
 
-        <button type="submit" style={{ marginTop: '1rem' }}>Place Order</button>
+        <button type="submit" className="checkout-btn">Place Order</button>
       </form>
     </div>
   );
