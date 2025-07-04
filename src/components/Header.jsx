@@ -1,12 +1,23 @@
 import { Link } from 'react-router-dom';
+import '../App.css';
+
+import { IoHomeOutline } from "react-icons/io5";
+import { MdOutlineShoppingBag } from "react-icons/md";
 
 const Header = () => {
   return (
-    <header style={{ padding: '1rem', backgroundColor: '#222', color: 'white' }}>
+    <header className="navbar">
       <h1>SwiftFit</h1>
       <nav>
-        <Link to="/" style={{ marginRight: '1rem', color: 'white' }}>Home</Link>
-        <Link to="/cart" style={{ color: 'white' }}>Cart</Link>
+        <Link to="/">
+         <IoHomeOutline size={28}/>
+         
+
+        </Link>
+        <Link to="/cart">
+          <MdOutlineShoppingBag size={28} />
+
+        </Link>
       </nav>
     </header>
   );
