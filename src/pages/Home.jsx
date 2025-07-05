@@ -2,6 +2,8 @@ import { useState } from 'react';
 import products from '../data/products';
 import ProductCard from '../components/ProductCard';
 import FilterSidebar from '../components/FilterSidebar';
+import PromoBanner from '../components/PromoBanner';
+
 
 const Home = () => {
   const [filters, setFilters] = useState({
@@ -32,6 +34,10 @@ const Home = () => {
   const filteredProducts = applyFilters();
 
   return (
+
+    <>
+
+    <PromoBanner />
     <div style={{ display: 'flex', padding: '2rem' }}>
       <FilterSidebar filters={filters} setFilters={setFilters} />
 
@@ -48,6 +54,7 @@ const Home = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

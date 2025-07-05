@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 
-const Checkout = () => {
+const Checkout = () => {  
   const { cartItems } = useCart();
   const navigate = useNavigate();
 
