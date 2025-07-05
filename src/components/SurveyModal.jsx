@@ -12,35 +12,25 @@ const SurveyModal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => setShow(false), 2000); // auto-close after 2s
+    setTimeout(() => setShow(false), 2000);
   };
 
   if (!show) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0, left: 0,
-      width: '100%', height: '100%',
-      backgroundColor: 'rgba(0,0,0,0.5)',
-      display: 'flex', alignItems: 'center', justifyContent: 'center',
-      zIndex: 999
-    }}>
-      <div style={{
-        backgroundColor: 'white',
-        padding: '2rem',
-        borderRadius: '8px',
-        width: '300px',
-        textAlign: 'center'
-      }}>
+    <div className="survey-backdrop">
+      <div className="survey-modal">
         {submitted ? (
-          <p>Thank you for your feedback! ❤️</p>
+          <p className="survey-thank-you">✅ Thank you for your feedback!</p>
         ) : (
           <>
-            <h3>We value your feedback!</h3>
-            <form onSubmit={handleSubmit}>
+            <h3>We’d love your feedback 💬</h3>
+            <p className="survey-subtext">
+              Your opinion helps us improve the SwiftFit experience.
+            </p>
+            <form onSubmit={handleSubmit} className="survey-form">
               <label>
-                Rate your experience (1–5):<br />
+                Rate your experience (1–5):
                 <input
                   type="number"
                   name="rating"
@@ -51,17 +41,18 @@ const SurveyModal = () => {
                   onChange={handleChange}
                 />
               </label>
-              <br /><br />
+
               <label>
-                Any comments?<br />
+                Comments:
                 <textarea
                   name="comment"
                   rows="3"
+                  placeholder="Let us know what you think..."
                   value={form.comment}
                   onChange={handleChange}
                 />
               </label>
-              <br /><br />
+
               <button type="submit">Submit</button>
             </form>
           </>
