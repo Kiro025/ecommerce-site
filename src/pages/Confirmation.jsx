@@ -1,7 +1,10 @@
+import StepIndicator from '../components/StepIndicator';
 import SurveyModal from '../components/SurveyModal';
 
 const Confirmation = () => {
   return (
+    <>
+    <StepIndicator />
     <div style={{ padding: '2rem', textAlign: 'center' }}>
       <h2>Thank You for Your Order!</h2>
       <p>Your SwiftFit gear is on its way 💪</p>
@@ -10,6 +13,7 @@ const Confirmation = () => {
       {/* Feedback modal */}
       <SurveyModal />
     </div>
+    </>
   );
 };
 

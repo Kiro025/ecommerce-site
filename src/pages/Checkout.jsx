@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import StepIndicator from '../components/StepIndicator';
 
 const Checkout = () => {  
   const { cartItems } = useCart();
@@ -29,6 +30,9 @@ const Checkout = () => {
   };
 
   return (
+
+    <>
+    <StepIndicator />
     <div className="checkout-container">
       <h2>Checkout</h2>
       <form className="checkout-form" onSubmit={handleSubmit}>
@@ -91,6 +95,7 @@ const Checkout = () => {
         <button type="submit" className="checkout-btn">Place Order</button>
       </form>
     </div>
+    </>
   );
 };
 

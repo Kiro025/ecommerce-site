@@ -272,3 +272,41 @@ footer {
   background-color: #eee;
   color: #555;
 }
+
+
+/* ========== StepIndicator ========== */
+.step-indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  background-color: #f1f5f9;
+  border-bottom: 1px solid #ddd;
+}
+
+.step {
+  text-align: center;
+  color: #bbb;
+}
+
+.step span {
+  display: block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50%;
+  background-color: #ddd;
+  color: #555;
+  margin: 0 auto 0.25rem;
+  font-weight: bold;
+}
+
+.step.active span {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.step.active {
+  color: var(--text-color);
+}

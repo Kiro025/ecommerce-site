@@ -1,5 +1,6 @@
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import StepIndicator from '../components/StepIndicator';
 
 const Cart = () => {
   const {
@@ -15,6 +16,9 @@ const Cart = () => {
   );
 
   return (
+
+    <>
+    <StepIndicator />
     <div style={{ padding: '2rem', maxWidth: '800px', margin: 'auto' }}>
       <h2 style={{ marginBottom: '2rem' }}>Your Cart</h2>
 
@@ -111,6 +115,7 @@ const Cart = () => {
         </>
       )}
     </div>
+    </>
   );
 };
 
