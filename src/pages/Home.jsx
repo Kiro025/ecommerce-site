@@ -9,18 +9,25 @@ const Home = () => {
     category: [],
     color: [],
     material: [],
+    price: { min: '', max: '' },
   });
 
   const applyFilters = () => {
     return products.filter(product => {
-      return (
-        (filters.gender.length === 0 || filters.gender.includes(product.gender)) &&
-        (filters.category.length === 0 || filters.category.includes(product.category)) &&
-        (filters.color.length === 0 || filters.color.includes(product.color)) &&
-        (filters.material.length === 0 || filters.material.includes(product.material))
-      );
+      const min = parseFloat(filters.price.min) || 0;
+      const max = parseFloat(filters.price.max) || Infinity;
+  
+      const matchesGender = filters.gender.length === 0 || filters.gender.includes(product.gender);
+      const matchesCategory = filters.category.length === 0 || filters.category.includes(product.category);
+      const matchesColor = filters.color.length === 0 || filters.color.includes(product.color);
+      const matchesMaterial = filters.material.length === 0 || filters.material.includes(product.material);
+      const matchesPrice = product.price >= min && product.price <= max;
+  
+      return matchesGender && matchesCategory && matchesColor && matchesMaterial && matchesPrice;
     });
   };
+  
+  
 
   const filteredProducts = applyFilters();
 
