@@ -1,20 +1,30 @@
 const FilterSidebar = ({ filters, setFilters }) => {
-    const handleChange = (e) => {
-      const { name, value, checked } = e.target;
-      if (name === 'minPrice' || name === 'maxPrice') {
-        setFilters(prev => ({
-          ...prev,
-          price: {
-            ...prev.price,
-            [name === 'minPrice' ? 'min' : 'max']: parseFloat(value) || 0,
-          }
-        }));
-      } else {
+  const handleChange = (e) => {
+    const { name, value, checked } = e.target;
+  
+    // Handle price range inputs
+    if (name === 'minPrice' || name === 'maxPrice') {
+      setFilters(prev => ({
+        ...prev,
+        price: {
+          ...prev.price,
+          [name === 'minPrice' ? 'min' : 'max']: value,
+        }
+      }));
+    } else {
+      // Handle checkbox filters (gender, category, etc.)
+      setFilters(prev => {
         const values = new Set(prev[name]);
-        checked ? values.add(value) : values.delete(value);
-        setFilters(prev => ({ ...prev, [name]: [...values] }));
-      }
-    };
+        if (checked) {
+          values.add(value);
+        } else {
+          values.delete(value);
+        }
+        return { ...prev, [name]: [...values] };
+      });
+    }
+  };
+  
   
     const options = {
       gender: ['Men', 'Women', 'Unisex'],
