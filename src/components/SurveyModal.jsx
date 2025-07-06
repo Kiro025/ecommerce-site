@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AiOutlineClose } from 'react-icons/ai'; // ← import icon
 
 const SurveyModal = () => {
   const [show, setShow] = useState(true);
@@ -20,6 +21,15 @@ const SurveyModal = () => {
   return (
     <div className="survey-backdrop">
       <div className="survey-modal">
+        <div
+          className="close-icon"
+          onClick={() => setShow(false)}
+          role="button"
+          tabIndex={0}
+        >
+          <AiOutlineClose size={20} />
+        </div>
+
         {submitted ? (
           <p className="survey-thank-you">✅ Thank you for your feedback!</p>
         ) : (
