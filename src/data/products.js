@@ -16,7 +16,7 @@ const products = [
       image: "/images/img2.jpg",
       category: "Bottoms",
       gender: "Women",
-      color: "Blue",
+      color: "Gray",
       material: "Stretch Cotton",
     },
     {
@@ -56,7 +56,7 @@ const products = [
       category: "Bottoms",
       gender: "Unisex",
       material: "Polyester",
-      color: "Gray",
+      color: "Black",
       image: "/images/img6.jpg"
     },
     {
@@ -86,7 +86,7 @@ const products = [
       category: "Accessories",
       gender: "Unisex",
       material: "Polyester",
-      color: "Blue",
+      color: "Black",
       image: "/images/img9.jpg"
     },
     {
