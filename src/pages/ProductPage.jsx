@@ -12,35 +12,40 @@ const ProductPage = () => {
   const handleAddToCart = () => {
     addToCart(product);
     setAdded(true);
-    setTimeout(() => setAdded(false), 2000); // Reset after 2s
+    setTimeout(() => setAdded(false), 2000);
   };
 
   if (!product) return <h2>Product not found</h2>;
 
   return (
-    <div style={{ padding: '2rem' }}>
-      <h2>{product.name}</h2>
-      <img src={product.image} alt={product.name} style={{ width: '300px', height: 'auto' }} />
-      <p><strong>Price:</strong> ${product.price.toFixed(2)}</p>
-      <p><strong>Material:</strong> {product.material}</p>
-      <p><strong>Category:</strong> {product.category}</p>
+    <div className="product-page">
+      <div className="product-page-image">
+        <img src={product.image} alt={product.name} />
+      </div>
 
-      <button
-        onClick={handleAddToCart}
-        disabled={added}
-        style={{
-          marginTop: '1rem',
-          backgroundColor: added ? '#10B981' : '#222',
-          color: 'white',
-          padding: '0.6rem 1.2rem',
-          border: 'none',
-          borderRadius: '6px',
-          cursor: 'pointer',
-          fontWeight: 'bold'
-        }}
-      >
-        {added ? '✅ Added!' : 'Add to Cart'}
-      </button>
+      <div className="product-page-info">
+        <h2>{product.name}</h2>
+
+        <p className="product-price"><strong>${product.price.toFixed(2)}</strong></p>
+
+        <p className="product-description">
+          {product.name} is designed for athletes who demand performance and comfort. Crafted with high-quality {product.material.toLowerCase()}, this item ensures breathability and durability during workouts. Perfect for training, running, or everyday wear.
+        </p>
+
+        <p className="product-meta">
+          <strong>Category:</strong> {product.category} <br />
+          <strong>Material:</strong> {product.material} <br />
+          <strong>Gender:</strong> {product.gender}
+        </p>
+
+        <button
+          className="add-to-cart-btn"
+          onClick={handleAddToCart}
+          disabled={added}
+        >
+          {added ? '✅ Added!' : 'Add to Cart'}
+        </button>
+      </div>
     </div>
   );
 };
