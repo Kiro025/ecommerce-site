@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 import products from '../data/products';
 import { useCart } from '../context/CartContext';
 import { useState } from 'react';
@@ -25,7 +26,6 @@ const ProductPage = () => {
 
       <div className="product-page-info">
         <h2>{product.name}</h2>
-
         <p className="product-price"><strong>${product.price.toFixed(2)}</strong></p>
 
         <p className="product-description">
@@ -45,8 +45,11 @@ const ProductPage = () => {
         >
           {added ? '✅ Added!' : 'Add to Cart'}
         </button>
+
+        <Link to="/" className="back-link">← Back to Shop</Link>
       </div>
     </div>
+
   );
 };
 
